@@ -1,0 +1,9 @@
+{
+    "entryPoints": [
+        "./src/*.ts"
+    ],
+    "out": "./docs",
+    "name": "💻 Práctica 5 - Objetos, clases e interfaces 💻",
+    "plugin": ["typedoc-material-theme"],
+    "themeColor": "#00FF73"
+}
