@@ -10,3 +10,4 @@
  * Práctica 5: Objetos, clases e interfaces
  */
 
+console.log("Esto es el segundo archivo de la práctica 5 de DSI.")
