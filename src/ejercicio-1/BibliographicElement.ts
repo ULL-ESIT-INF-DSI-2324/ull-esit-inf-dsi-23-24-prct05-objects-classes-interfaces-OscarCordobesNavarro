@@ -18,5 +18,6 @@ export interface BibliographicElement {
     getPublicationDate(): Date;
     getPages(): string;
     getEditorial(): string;
+    getIEEECitation(): string;
 }
 

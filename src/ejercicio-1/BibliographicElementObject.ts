@@ -59,4 +59,5 @@ export abstract class BibliographicElementObject implements BibliographicElement
         return this.editorial;
     }
 
+    abstract getIEEECitation(): string;
 }

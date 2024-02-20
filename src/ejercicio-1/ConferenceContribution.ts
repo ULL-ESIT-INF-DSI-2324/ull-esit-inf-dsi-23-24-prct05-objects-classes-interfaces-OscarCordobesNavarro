@@ -23,4 +23,10 @@ export class ConferenceContribution extends BibliographicElementObject {
     public getConference(): string {
         return this.conference;
     }
+
+    public getIEEECitation(): string {
+        // J. K. Author, “Title of paper,” presented at the Abbreviated Name of Conf., City of Conf., Abbrev. State, Country, Month and day(s), year, Paper number.
+        const authors = this.getAuthors().join(' and ');
+        return `${authors}, "${this.getTitle()}", presented at the ${this.getConference()}, ${this.getPublicationDate().getFullYear()}.`;
+    }
 }

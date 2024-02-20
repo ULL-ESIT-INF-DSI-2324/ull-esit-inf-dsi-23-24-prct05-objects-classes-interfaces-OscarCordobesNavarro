@@ -35,4 +35,8 @@ export class FinalProject extends BibliographicElementObject {
     public getUniversity(): string {
         return this.university;
     }
+
+    public getIEEECitation(): string {
+        return `${this.getAuthors().join(' and ')}, "${this.getTitle()}", ${this.getUniversity()}, ${this.getPublicationDate().getFullYear()}.`;
+    }
 }

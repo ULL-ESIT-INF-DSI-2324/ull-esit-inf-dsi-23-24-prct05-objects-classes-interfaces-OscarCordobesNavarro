@@ -35,4 +35,10 @@ export class Patent extends BibliographicElementObject {
     public getExpirationDate(): Date {
         return this.expirationDate;
     }
+
+    public getIEEECitation(): string {
+        // J. K. Author, “Title of patent,” Country Patent xxx, Abbrev. Month, day, year.
+        const authors = this.getAuthors().join(' and ');
+        return `${authors}, "${this.getTitle()}", ${this.getCountry()} Patent ${this.getPatentNumber()}, ${this.getPublicationDate().getMonth()}, ${this.getPublicationDate().getDay()}, ${this.getPublicationDate().getFullYear()}.`;
+    }
 }

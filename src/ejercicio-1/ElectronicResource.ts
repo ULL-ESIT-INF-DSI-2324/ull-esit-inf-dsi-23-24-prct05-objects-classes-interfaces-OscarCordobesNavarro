@@ -30,4 +30,8 @@ export class ElectronicResource extends BibliographicElementObject {
         return this.format;
     }
 
+    public getIEEECitation(): string {
+        return `${this.getAuthors().join(' and ')}, "${this.getTitle()}", ${this.getPublicationDate().getFullYear()}. [Online]. Available: ${this.getURL()}`;
+    }
+
 }

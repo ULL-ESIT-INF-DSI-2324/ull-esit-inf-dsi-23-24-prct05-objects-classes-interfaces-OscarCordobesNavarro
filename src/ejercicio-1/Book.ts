@@ -16,12 +16,16 @@ export class Book extends BibliographicElementObject {
     private genre: string;
     private language: string;
     private ISBN: string;
+    private city: string;
+    private country: string;
 
-    constructor(title: string, authors: string[], keywords: string[], abstract: string, publicationDate: Date, pages: string, editorial: string, genre: string, language: string, ISBN: string) {
+    constructor(title: string, authors: string[], keywords: string[], abstract: string, publicationDate: Date, pages: string, editorial: string, genre: string, language: string, ISBN: string, city: string, country: string) {
         super(title, authors, keywords, abstract, publicationDate, pages, editorial);
         this.genre = genre;
         this.language = language;
         this.ISBN = ISBN;
+        this.city = city;
+        this.country = country;
     }
 
     public getGenre(): string {
@@ -35,4 +39,19 @@ export class Book extends BibliographicElementObject {
     public getISBN(): string {
         return this.ISBN;
     }
+
+    public getCity(): string {
+        return this.city;
+    }
+
+    public getCountry(): string {
+        return this.country;
+    }
+
+    public getIEEECitation(): string {
+        // Format: [1] A. Author, "Title of chapter in the book," in Title of His Published Book, xth ed. City of Publisher, (only U.S. State), Country: Publisher, year, ch. x, sec. x, pp. xxx-xxx.
+        const authors = this.getAuthors().join(' and ');
+        return `${authors}, "${this.getTitle()}, ${this.getCity()}, ${this.getCountry()}: ${this.getEditorial()}, ${this.getPublicationDate().getFullYear()}, pp. ${this.getPages()}.`;
+    }
+
 }
