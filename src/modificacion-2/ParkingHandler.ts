@@ -60,6 +60,12 @@ export class ParkingHandler {
     }
 
     public printStatus(): void {
-        console.table(this.register);
+        console.table(this.register.map(([vehicle, date]) => ({
+            ID: vehicle.getID(),
+            Type: vehicle instanceof Car ? 'Car' : 'Bike',
+            Brand: vehicle.getBrand(),
+            Model: vehicle.getModel(),
+            Arrived: date.toISOString(),
+        })));
     }
 };

@@ -20,7 +20,7 @@ import { ElectronicResource } from "./ElectronicResource";
 import { FinalProject } from "./FinalProject";
 import { Patent } from "./Patent";
 
-const bibliographicManager = new BibliographicManager();
+// const bibliographicManager = new BibliographicManager();
 
 const book1 = new Book(
   "Book1",
@@ -157,7 +157,7 @@ const thesis2 = new Thesis(
 const thesis3 = new Thesis(
   "Thesis3",
   ["Author23", "Author24"],
-  ["Keyword23", "Keyword24"],
+  ["Keyword1", "Keyword24"],
   "Abstract12",
   new Date("2022-01-01"),
   "1200",
@@ -299,16 +299,20 @@ const bibliographicElements: BibliographicElementObject[] = [
   patent3,
 ];
 
-bibliographicElements.forEach((element) => {
-  bibliographicManager.addElement(element);
-});
+// bibliographicElements.forEach((element) => {
+//   bibliographicManager.addElement(element);
+// });
 
+const bibliographicManager = new BibliographicManager(bibliographicElements);
 // bibliographicManager.displayElements();
 // console.log(conferenceContribution1.getIEEECitation());
 // console.log(electronicResource1.getIEEECitation());
 // console.log(finalProject1.getIEEECitation());
 // console.log(thesis1.getIEEECitation());
 // console.log(patent1.getIEEECitation());
-console.log(journalArticle1.getIEEECitation());
+// console.log(journalArticle1.getIEEECitation());
+
+bibliographicManager.searchByKeyword("Keyword1", true);
+
 
 

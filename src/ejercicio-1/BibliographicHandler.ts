@@ -11,40 +11,78 @@
  */
 
 import { BibliographicElementObject } from './BibliographicElementObject';
+import { BibliographicSearch } from './BibliographicSearch';
 
-export class BibliographicManager {
+export class BibliographicManager implements BibliographicSearch {
     private bibliographicElements: BibliographicElementObject[] = [];
+
+    constructor(elements?: BibliographicElementObject[]) {
+        if (elements) {
+            this.bibliographicElements = elements;
+        }
+    }
 
     public addElement(element: BibliographicElementObject): void {
         this.bibliographicElements.push(element);
     }
 
-    public getElements(): BibliographicElementObject[] {
-        return this.bibliographicElements;
+    public removeElement(title: string): void {
+        // Buscar el elemento y eliminarlo por su título
+        this.bibliographicElements = this.bibliographicElements.filter((element) => element.getTitle() !== title);
     }
 
-    public getElementsByTitle(title: string): BibliographicElementObject[] {
-        return this.bibliographicElements.filter((element: BibliographicElementObject) => element.getTitle() === title);
+    public searchByKeyword(keyword: string, IEEE?: boolean): void {
+        const elements = this.bibliographicElements.filter((element) => element.getKeywords().includes(keyword));
+        if (IEEE) {
+            this.IEEEFormat(elements);
+        } else {
+            console.table(elements);
+        }
     }
 
-    public getElementsByAuthor(author: string): BibliographicElementObject[] {
-        return this.bibliographicElements.filter((element: BibliographicElementObject) => element.getAuthors().includes(author));
+    public filterByTitle(title: string, IEEE?: boolean): void {
+        const elements = this.bibliographicElements.filter((element) => element.getTitle() === title);
+        if (IEEE) {
+            this.IEEEFormat(elements);
+        } else {
+            console.table(elements);
+        }
     }
 
-    public getElementsByKeyword(keyword: string): BibliographicElementObject[] {
-        return this.bibliographicElements.filter((element: BibliographicElementObject) => element.getKeywords().includes(keyword));
+    public filterByAuthors(authors: string[], IEEE?: boolean): void {
+        const elements = this.bibliographicElements.filter((element) => element.getAuthors().some((author) => authors.includes(author)));
+        if (IEEE) {
+            this.IEEEFormat(elements);
+        } else {
+            console.table(elements);
+        }
     }
 
-    public getElementsByEditorial(editorial: string): BibliographicElementObject[] {
-        return this.bibliographicElements.filter((element: BibliographicElementObject) => element.getEditorial() === editorial);
+    public filterByPublicationDate(date: Date, IEEE?: boolean): void {
+        const elements = this.bibliographicElements.filter((element) => element.getPublicationDate() === date);
+        if (IEEE) {
+            this.IEEEFormat(elements);
+        } else {
+            console.table(elements);
+        }
     }
 
-    public getElementsByPublicationDate(publicationDate: Date): BibliographicElementObject[] {
-        return this.bibliographicElements.filter((element: BibliographicElementObject) => element.getPublicationDate() === publicationDate);
+    public filterByEditorial(editorial: string, IEEE?: boolean): void {
+        const elements = this.bibliographicElements.filter((element) => element.getEditorial() === editorial);
+        if (IEEE) {
+            this.IEEEFormat(elements);
+        } else {
+            console.table(elements);
+        }
     }
 
-    public getElementsByPages(pages: string): BibliographicElementObject[] {
-        return this.bibliographicElements.filter((element: BibliographicElementObject) => element.getPages() === pages);
+    private IEEEFormat(element: BibliographicElementObject[]): void  {
+        const elementsIEEE = element.map((element) => {
+            return {
+                IEEE_Format: element.getIEEECitation()
+            };
+        });
+        console.table(elementsIEEE);
     }
 
     displayElements(): void {
