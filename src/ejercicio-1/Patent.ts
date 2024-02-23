@@ -12,11 +12,28 @@
 
 import { BibliographicElementObject } from './BibliographicElementObject';
 
+/**
+ * Clase que representa una patente.
+ * Hereda de la clase BibliographicElementObject.
+ */
 export class Patent extends BibliographicElementObject {
     private patentNumber: number;
     private country: string;
     private expirationDate: Date;
 
+    /**
+     * Crea una instancia de la clase Patent.
+     * @param title - Título de la patente.
+     * @param authors - Autores de la patente.
+     * @param keywords - Palabras clave de la patente.
+     * @param abstract - Resumen de la patente.
+     * @param publicationDate - Fecha de publicación de la patente.
+     * @param pages - Páginas de la patente.
+     * @param editorial - Editorial de la patente.
+     * @param patentNumber - Número de la patente.
+     * @param country - País de la patente.
+     * @param expirationDate - Fecha de expiración de la patente.
+     */
     constructor(title: string, authors: string[], keywords: string[], abstract: string, publicationDate: Date, pages: string, editorial: string, patentNumber: number, country: string, expirationDate: Date) {
         super(title, authors, keywords, abstract, publicationDate, pages, editorial);
         this.patentNumber = patentNumber;
@@ -24,18 +41,34 @@ export class Patent extends BibliographicElementObject {
         this.expirationDate = expirationDate;
     }
 
+    /**
+     * Obtiene el número de la patente.
+     * @returns El número de la patente.
+     */
     public getPatentNumber(): number {
         return this.patentNumber;
     }
 
+    /**
+     * Obtiene el país de la patente.
+     * @returns El país de la patente.
+     */
     public getCountry(): string {
         return this.country;
     }
 
+    /**
+     * Obtiene la fecha de expiración de la patente.
+     * @returns La fecha de expiración de la patente.
+     */
     public getExpirationDate(): Date {
         return this.expirationDate;
     }
 
+    /**
+     * Obtiene la cita IEEE de la patente.
+     * @returns La cita IEEE de la patente.
+     */
     public getIEEECitation(): string {
         // J. K. Author, “Title of patent,” Country Patent xxx, Abbrev. Month, day, year.
         const authors = this.getAuthors().join(' and ');
