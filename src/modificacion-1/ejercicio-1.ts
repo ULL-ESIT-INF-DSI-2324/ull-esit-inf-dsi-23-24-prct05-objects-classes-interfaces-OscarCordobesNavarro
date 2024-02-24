@@ -13,7 +13,7 @@
 /**
  * Objeto que representa un tablero de ajedrez.
  */
-export let chessBoard = {
+export const chessBoard = {
     /**
      * Matriz que representa el tablero de ajedrez.
      */
@@ -45,7 +45,7 @@ export let chessBoard = {
      * Reinicia el tablero de ajedrez, rellenando todas las casillas con el carácter "-".
      */
     reset: function() {
-        this.board.forEach((row, rowIndex) => {
+        this.board.forEach((row) => {
             row.fill("-", 0, 8);
         });
     }
@@ -68,10 +68,8 @@ export function checkAttack(table: string[][]) {
     } else {
         // Comprobar si hay solamente una reina de cada color
         // Encontrar las posiciones de las reinas
-        let whiteQueen = [table.findIndex(row => row.includes("B")), (table.find(row => row.includes("B")) as string[]).indexOf("B")];
-        let blackQueen = [table.findIndex(row => row.includes("N")), (table.find(row => row.includes("N")) as string[]).indexOf("N")];
-
-        console.log("Las posiciones de las reinas son: ", whiteQueen, blackQueen);
+        const whiteQueen = [table.findIndex(row => row.includes("B")), (table.find(row => row.includes("B")) as string[]).indexOf("B")];
+        const blackQueen = [table.findIndex(row => row.includes("N")), (table.find(row => row.includes("N")) as string[]).indexOf("N")];
 
         // Comprobamos que no están en la misma fila, columna o diagonal
         // La diagonal la comprobamos con la resta de las posiciones de las reinas, si están en diagonal siempre formarán un cuadrado
@@ -82,9 +80,4 @@ export function checkAttack(table: string[][]) {
         }
     }
 }
-
-console.log(checkAttack(chessBoard.board));
-chessBoard.reset();
-chessBoard.setQueens([0, 2], [3, 4]);
-chessBoard.printBoard();
 
