@@ -14,9 +14,11 @@ import { Car } from "./Car";
 import { Bike } from "./Bike";
 import {Vehicle} from "./Vehicle";
 
-
 export type registerVehicle = [Vehicle, Date];
 
+/**
+ * Clase que maneja el estacionamiento de vehículos.
+ */
 export class ParkingHandler {
     private numCars: number = 100;
     private numBikes: number = 25;
@@ -29,6 +31,12 @@ export class ParkingHandler {
     constructor() {
     }
 
+    /**
+     * Añade un vehículo al estacionamiento.
+     * @param vehicle El vehículo a añadir.
+     * @param date La fecha de llegada del vehículo.
+     * @returns `true` si se añadió correctamente, `false` en caso contrario.
+     */
     public addVehicle(vehicle: Vehicle, date: Date): boolean {
         // Dependiendo del tipo de vehículo, se añade al array correspondiente
         if (vehicle instanceof Car && this.cars.length < this.numCars) {
@@ -43,6 +51,11 @@ export class ParkingHandler {
         return false;
     }
 
+    /**
+     * Elimina un vehículo del estacionamiento.
+     * @param vehicle El vehículo a eliminar.
+     * @returns `true` si se eliminó correctamente, `false` en caso contrario.
+     */
     public removeVehicle(vehicle: Vehicle): boolean {
         // Comprobamos que su registro exista
         if (!this.register.find((register) => register[0].getID() === vehicle.getID())) {
@@ -59,6 +72,9 @@ export class ParkingHandler {
         return false;
     }
 
+    /**
+     * Imprime el estado actual del estacionamiento.
+     */
     public printStatus(): void {
         console.table(this.register.map(([vehicle, date]) => ({
             ID: vehicle.getID(),

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsc-watch --onSuccess \"node ./dist/ejercicio-1/index.js\"",
+    "dev": "tsc-watch --onSuccess \"node ./dist/ejercicio-2/ejercicio-2.js\"",
     "doc": "typedoc",
     "test": "mocha"
   },

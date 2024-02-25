@@ -10,4 +10,20 @@
  * Práctica 5: Objetos, clases e interfaces
  */
 
-console.log("Esto es el segundo archivo de la práctica 5 de DSI.")
+/**
+ * Interfaz que representa un plato.
+ */
+export interface Dish {
+    /**
+     * Nombre del plato.
+     */
+    name: string;
+    /**
+     * Puntuación nutricional del plato.
+     */
+    nutritionalScore: number;
+    /**
+     * Puntuación de falta de salud del plato.
+     */
+    unhealthinessScore: number;
+}
