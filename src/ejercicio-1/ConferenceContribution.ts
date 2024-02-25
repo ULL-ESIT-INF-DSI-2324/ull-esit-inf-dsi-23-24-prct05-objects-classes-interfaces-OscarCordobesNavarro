@@ -17,8 +17,6 @@ import { BibliographicElementObject } from "./BibliographicElementObject";
  * Hereda de la clase BibliographicElementObject.
  */
 export class ConferenceContribution extends BibliographicElementObject {
-  private conference: string;
-
   /**
    * Crea una instancia de ConferenceContribution.
    * @param title - Título de la contribución.
@@ -38,7 +36,7 @@ export class ConferenceContribution extends BibliographicElementObject {
     publicationDate: Date,
     pages: string,
     editorial: string,
-    conference: string,
+    private conference: string,
   ) {
     super(
       title,
@@ -49,7 +47,6 @@ export class ConferenceContribution extends BibliographicElementObject {
       pages,
       editorial,
     );
-    this.conference = conference;
   }
 
   /**

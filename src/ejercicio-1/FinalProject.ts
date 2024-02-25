@@ -17,10 +17,6 @@ import { BibliographicElementObject } from "./BibliographicElementObject";
  * Hereda de la clase BibliographicElementObject.
  */
 export class FinalProject extends BibliographicElementObject {
-  private tutor: string;
-  private qualification: number;
-  private university: string;
-
   /**
    * Crea una instancia de FinalProject.
    * @param title - Título del proyecto final.
@@ -42,9 +38,9 @@ export class FinalProject extends BibliographicElementObject {
     publicationDate: Date,
     pages: string,
     editorial: string,
-    tutor: string,
-    qualification: number,
-    university: string,
+    private tutor: string,
+    private qualification: number,
+    private university: string,
   ) {
     super(
       title,
@@ -55,9 +51,6 @@ export class FinalProject extends BibliographicElementObject {
       pages,
       editorial,
     );
-    this.tutor = tutor;
-    this.qualification = qualification;
-    this.university = university;
   }
 
   /**

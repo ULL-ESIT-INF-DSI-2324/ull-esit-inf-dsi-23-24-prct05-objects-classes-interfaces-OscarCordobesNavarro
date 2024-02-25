@@ -17,9 +17,6 @@ import { BibliographicElementObject } from "./BibliographicElementObject";
  * Hereda de la clase BibliographicElementObject.
  */
 export class ElectronicResource extends BibliographicElementObject {
-  private URL: string;
-  private format: string;
-
   /**
    * Crea una instancia de ElectronicResource.
    * @param title - Título del recurso.
@@ -40,8 +37,8 @@ export class ElectronicResource extends BibliographicElementObject {
     publicationDate: Date,
     pages: string,
     editorial: string,
-    URL: string,
-    format: string,
+    private URL: string,
+    private format: string,
   ) {
     super(
       title,
@@ -52,8 +49,6 @@ export class ElectronicResource extends BibliographicElementObject {
       pages,
       editorial,
     );
-    this.URL = URL;
-    this.format = format;
   }
 
   /**

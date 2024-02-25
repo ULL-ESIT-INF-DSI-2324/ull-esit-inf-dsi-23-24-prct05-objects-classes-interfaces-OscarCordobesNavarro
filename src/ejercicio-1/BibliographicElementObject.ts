@@ -19,14 +19,6 @@ import { BibliographicElement } from "./BibliographicElement";
 export abstract class BibliographicElementObject
   implements BibliographicElement
 {
-  private title: string;
-  private authors: string[];
-  private keywords: string[];
-  private abstract: string;
-  private publicationDate: Date;
-  private pages: string;
-  private editorial: string;
-
   /**
    * Crea una instancia de BibliographicElementObject.
    * @param title - El título del elemento bibliográfico.
@@ -38,22 +30,14 @@ export abstract class BibliographicElementObject
    * @param editorial - La editorial del elemento bibliográfico.
    */
   constructor(
-    title: string,
-    authors: string[],
-    keywords: string[],
-    abstract: string,
-    publicationDate: Date,
-    pages: string,
-    editorial: string,
-  ) {
-    this.title = title;
-    this.authors = authors;
-    this.keywords = keywords;
-    this.abstract = abstract;
-    this.publicationDate = publicationDate;
-    this.pages = pages;
-    this.editorial = editorial;
-  }
+    private title: string,
+    private authors: string[],
+    private keywords: string[],
+    private abstract: string,
+    private publicationDate: Date,
+    private pages: string,
+    private editorial: string,
+  ) {}
 
   /**
    * Obtiene el título del elemento bibliográfico.

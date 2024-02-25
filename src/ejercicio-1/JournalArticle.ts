@@ -17,9 +17,6 @@ import { BibliographicElementObject } from "./BibliographicElementObject";
  * Hereda de la clase BibliographicElementObject.
  */
 export class JournalArticle extends BibliographicElementObject {
-  private journal: string;
-  private country: string;
-
   /**
    * Crea una instancia de JournalArticle.
    * @param title - Título del artículo.
@@ -40,8 +37,8 @@ export class JournalArticle extends BibliographicElementObject {
     publicationDate: Date,
     pages: string,
     editorial: string,
-    journal: string,
-    country: string,
+    private journal: string,
+    private country: string,
   ) {
     super(
       title,
@@ -52,8 +49,6 @@ export class JournalArticle extends BibliographicElementObject {
       pages,
       editorial,
     );
-    this.journal = journal;
-    this.country = country;
   }
 
   /**

@@ -119,3 +119,56 @@ describe("Solver tests", () => {
         expect(solucion3.getDishes()[3].name).to.equal('Greek Yogurt Parfait');
     });
 });
+
+describe("MenuSolution tests", () => {
+    const additionalDishes1 = [
+        { name: 'Sushi', nutritionalScore: 8, unhealthinessScore: 4 },
+        { name: 'Grilled Chicken Breast', nutritionalScore: 9, unhealthinessScore: 3 },
+        { name: 'Vegetable Stir-Fry', nutritionalScore: 7, unhealthinessScore: 2 },
+        { name: 'Smoothie Bowl', nutritionalScore: 4, unhealthinessScore: 1 }
+    ];
+    const additionalDishes2 = [
+        { name: 'Pasta Primavera', nutritionalScore: 6, unhealthinessScore: 4 },
+        { name: 'Quinoa Salad', nutritionalScore: 7, unhealthinessScore: 2 },
+        { name: 'Grilled Salmon', nutritionalScore: 9, unhealthinessScore: 3 },
+        { name: 'Veggie Burger', nutritionalScore: 5, unhealthinessScore: 4 },
+        { name: 'Fajita Bowl', nutritionalScore: 8, unhealthinessScore: 3 }
+    ];
+    const additionalDishes3 = [
+        { name: 'Caprese Salad', nutritionalScore: 4, unhealthinessScore: 2 },
+        { name: 'Roasted Vegetable Medley', nutritionalScore: 8, unhealthinessScore: 2 },
+        { name: 'Shrimp and Avocado Wrap', nutritionalScore: 7, unhealthinessScore: 3 },
+        { name: 'Mango Chicken Curry', nutritionalScore: 6, unhealthinessScore: 4 },
+        { name: 'Greek Yogurt Parfait', nutritionalScore: 3, unhealthinessScore: 2 }
+    ];
+
+    const menu1 = new MenuInstance(additionalDishes1, 10);
+    const menu2 = new MenuInstance(additionalDishes2, 10);
+    const menu3 = new MenuInstance(additionalDishes3, 10);
+    let solucionador = new Solver(ALGORITHM_TYPE.FIRST);
+    let solucion1 = solucionador.solve(menu1);
+    let solucion2 = solucionador.solve(menu2);
+    let solucion3 = solucionador.solve(menu3);
+
+    it("Should return the correct nutritional score for the first menu", () => {
+        expect(solucion1.getTotalNutritionalScore()).to.equal(28);
+    });
+    it("Should return the correct unhealthiness score for the first menu", () => {
+        expect(solucion1.getTotalUnhealthinessScore()).to.equal(10);
+    });
+    it("Should return the correct nutritional score for the second menu", () => {
+        expect(solucion2.getTotalNutritionalScore()).to.equal(24);
+    });
+    it("Should return the correct unhealthiness score for the second menu", () => {
+        expect(solucion2.getTotalUnhealthinessScore()).to.equal(8);
+    });
+    it("Should return the correct nutritional score for the third menu", () => {
+        expect(solucion3.getTotalNutritionalScore()).to.equal(21);
+    });
+    it("Should return the correct unhealthiness score for the third menu", () => {
+        expect(solucion3.getTotalUnhealthinessScore()).to.equal(9);
+    });
+    solucion1.display();
+    solucion2.display();
+    solucion3.display();
+});

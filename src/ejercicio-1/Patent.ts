@@ -17,10 +17,6 @@ import { BibliographicElementObject } from "./BibliographicElementObject";
  * Hereda de la clase BibliographicElementObject.
  */
 export class Patent extends BibliographicElementObject {
-  private patentNumber: number;
-  private country: string;
-  private expirationDate: Date;
-
   /**
    * Crea una instancia de la clase Patent.
    * @param title - Título de la patente.
@@ -42,9 +38,9 @@ export class Patent extends BibliographicElementObject {
     publicationDate: Date,
     pages: string,
     editorial: string,
-    patentNumber: number,
-    country: string,
-    expirationDate: Date,
+    private patentNumber: number,
+    private country: string,
+    private expirationDate: Date,
   ) {
     super(
       title,
@@ -55,9 +51,6 @@ export class Patent extends BibliographicElementObject {
       pages,
       editorial,
     );
-    this.patentNumber = patentNumber;
-    this.country = country;
-    this.expirationDate = expirationDate;
   }
 
   /**

@@ -17,10 +17,6 @@ import { BibliographicElementObject } from "./BibliographicElementObject";
  * Hereda de la clase BibliographicElementObject.
  */
 export class Thesis extends BibliographicElementObject {
-  private tutor: string;
-  private degree: string;
-  private university: string;
-
   /**
    * Crea una instancia de la clase Thesis.
    * @param title - Título de la tesis.
@@ -42,9 +38,9 @@ export class Thesis extends BibliographicElementObject {
     publicationDate: Date,
     pages: string,
     editorial: string,
-    tutor: string,
-    degree: string,
-    university: string,
+    private tutor: string,
+    private degree: string,
+    private university: string,
   ) {
     super(
       title,
@@ -55,9 +51,6 @@ export class Thesis extends BibliographicElementObject {
       pages,
       editorial,
     );
-    this.tutor = tutor;
-    this.degree = degree;
-    this.university = university;
   }
 
   /**

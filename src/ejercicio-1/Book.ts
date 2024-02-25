@@ -16,12 +16,6 @@ import { BibliographicElementObject } from "./BibliographicElementObject";
  * Clase que representa un libro.
  */
 export class Book extends BibliographicElementObject {
-  private genre: string;
-  private language: string;
-  private ISBN: string;
-  private city: string;
-  private country: string;
-
   /**
    * Crea una instancia de la clase Book.
    * @param title - Título del libro.
@@ -45,11 +39,11 @@ export class Book extends BibliographicElementObject {
     publicationDate: Date,
     pages: string,
     editorial: string,
-    genre: string,
-    language: string,
-    ISBN: string,
-    city: string,
-    country: string,
+    private genre: string,
+    private language: string,
+    private ISBN: string,
+    private city: string,
+    private country: string,
   ) {
     super(
       title,
@@ -60,11 +54,6 @@ export class Book extends BibliographicElementObject {
       pages,
       editorial,
     );
-    this.genre = genre;
-    this.language = language;
-    this.ISBN = ISBN;
-    this.city = city;
-    this.country = country;
   }
 
   /**
