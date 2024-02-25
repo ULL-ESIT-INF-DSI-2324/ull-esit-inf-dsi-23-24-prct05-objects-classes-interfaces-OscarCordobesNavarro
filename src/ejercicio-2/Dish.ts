@@ -10,3 +10,20 @@
  * Práctica 5: Objetos, clases e interfaces
  */
 
+/**
+ * Interfaz que representa un plato.
+ */
+export interface Dish {
+    /**
+     * Nombre del plato.
+     */
+    name: string;
+    /**
+     * Puntuación nutricional del plato.
+     */
+    nutritionalScore: number;
+    /**
+     * Puntuación de falta de salud del plato.
+     */
+    unhealthinessScore: number;
+}
