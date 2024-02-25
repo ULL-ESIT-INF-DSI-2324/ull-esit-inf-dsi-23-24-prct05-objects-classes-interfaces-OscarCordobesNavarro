@@ -16,7 +16,7 @@ import { MenuInstance } from "../src/ejercicio-2/MenuInstance";
 import { Solver } from "../src/ejercicio-2/Solver";
 import { ALGORITHM_TYPE } from "../src/ejercicio-2/Solver";
 
-describe("Solver", () => {
+describe("Solver tests", () => {
     const additionalDishes1 = [
         { name: 'Sushi', nutritionalScore: 8, unhealthinessScore: 4 },
         { name: 'Grilled Chicken Breast', nutritionalScore: 9, unhealthinessScore: 3 },
@@ -65,8 +65,8 @@ describe("Solver", () => {
         expect(solucion3.getDishes()[2].name).to.equal('Mango Chicken Curry');
     });
 
-    solucionador = new Solver(ALGORITHM_TYPE.SECOND);
     it("Should return the correct solution for the first menu using second heuristic", () => {
+        solucionador = new Solver(ALGORITHM_TYPE.SECOND);
         solucion1 = solucionador.solve(menu1);
         expect(solucion1.getDishes().length).to.equal(4);
         expect(solucion1.getDishes()[0].name).to.equal('Smoothie Bowl');
@@ -75,6 +75,7 @@ describe("Solver", () => {
         expect(solucion1.getDishes()[3].name).to.equal('Sushi');
     });
     it("Should return the correct solution for the second menu using second heuristic", () => {
+        solucionador = new Solver(ALGORITHM_TYPE.SECOND);
         solucion2 = solucionador.solve(menu2);
         expect(solucion2.getDishes().length).to.equal(3);
         expect(solucion2.getDishes()[0].name).to.equal('Quinoa Salad');
@@ -82,16 +83,17 @@ describe("Solver", () => {
         expect(solucion2.getDishes()[2].name).to.equal('Fajita Bowl');
     });
     it("Should return the correct solution for the third menu using second heuristic", () => {
+        solucionador = new Solver(ALGORITHM_TYPE.SECOND);
         solucion3 = solucionador.solve(menu3);
         expect(solucion3.getDishes().length).to.equal(4);
         expect(solucion3.getDishes()[0].name).to.equal('Roasted Vegetable Medley');
-        expect(solucion3.getDishes()[1].name).to.equal('Shrimp and Avocado Wrap');
-        expect(solucion3.getDishes()[2].name).to.equal('Caprese Salad');
-        expect(solucion3.getDishes()[3].name).to.equal('Greek Yogurt Parfait');
+        expect(solucion3.getDishes()[1].name).to.equal('Caprese Salad');
+        expect(solucion3.getDishes()[2].name).to.equal('Greek Yogurt Parfait');
+        expect(solucion3.getDishes()[3].name).to.equal('Shrimp and Avocado Wrap');
     });
 
-    solucionador = new Solver(ALGORITHM_TYPE.THIRD);
     it("Should return the correct solution for the first menu using third heuristic", () => {
+        solucionador = new Solver(ALGORITHM_TYPE.THIRD);
         solucion1 = solucionador.solve(menu1);
         expect(solucion1.getDishes().length).to.equal(4);
         expect(solucion1.getDishes()[0].name).to.equal('Smoothie Bowl');
@@ -100,6 +102,7 @@ describe("Solver", () => {
         expect(solucion1.getDishes()[3].name).to.equal('Sushi');
     });
     it("Should return the correct solution for the second menu using third heuristic", () => {
+        solucionador = new Solver(ALGORITHM_TYPE.THIRD);
         solucion2 = solucionador.solve(menu2);
         expect(solucion2.getDishes().length).to.equal(3);
         expect(solucion2.getDishes()[0].name).to.equal('Quinoa Salad');
@@ -107,6 +110,7 @@ describe("Solver", () => {
         expect(solucion2.getDishes()[2].name).to.equal('Fajita Bowl');
     });
     it("Should return the correct solution for the third menu using third heuristic", () => {
+        solucionador = new Solver(ALGORITHM_TYPE.THIRD);
         solucion3 = solucionador.solve(menu3);
         expect(solucion3.getDishes().length).to.equal(4);
         expect(solucion3.getDishes()[0].name).to.equal('Roasted Vegetable Medley');
