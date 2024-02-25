@@ -42,6 +42,7 @@ export class Solver {
   constructor(
     private algorithm: ALGORITHM_TYPE,
   ) {
+    this.logic();
   }
 
   /**
@@ -69,10 +70,7 @@ export class Solver {
    * @returns La solución del menú.
    */
   solve(menu: MenuInstance): MenuSolution {
-    this.logic();
-    // Obtener los platos ordenados
     const sortedDishes = this.heuristic?.solve(menu.getDishes()) as Dish[];
-    // Una vez ordenados los platos, se van añadiendo al menú hasta que se alcance el valor máximo de unhealthiness
     let unhealthiness = 0;
     const dishes: Dish[] = [];
     sortedDishes.forEach((dish) => {

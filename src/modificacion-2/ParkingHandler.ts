@@ -22,7 +22,6 @@ export type registerVehicle = [Vehicle, Date];
 export class ParkingHandler {
     private numCars: number = 100;
     private numBikes: number = 25;
-    // Arrays de tamaño fijo para los coches y motos
     private cars: Car[] = [];
     private bikes: Bike[] = [];
 
