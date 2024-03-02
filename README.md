@@ -18,7 +18,7 @@ Además, incorporaremos pruebas unitarias con Mocha y Chai, así como la generac
 
 La idea en esta practica es crear un pequeño gestor de referencias bibliográficas donde vamos a tener distintos objetos tales como libros, recursos electronicos, trabajos de fin de grado y demás. Pero antes de empezar a ver el código en mi caso he realizado un pequeño esquema en la web app [Excalidraw](https://excalidraw.com/) de como será nuestra estructura y las relaciones entre los objetos.
 
-![Esquema ](/IdeaEjercicio-1-V3.png)
+![Esquema ](/docs/IdeaEjercicio-1-V3.png)
 
 En primer lugar, es crucial considerar que los objetos que se almacenarán en nuestro gestor serán diversos entre sí, aunque compartirán atributos comunes. En este contexto, he creado una interfaz `BibliographicElement` y la he implementado en la clase abstracta, la cual será heredada por todos los objetos de nuestro gestor bibliográfico.
 
@@ -272,7 +272,7 @@ Podemos ver como se implementan dentro de la clase las distintas búsquedas y me
 
 La finalidad de este ejercicio consiste en automatizar la creación de un menú saludable. Para lograrlo, al igual que en el ejercicio anterior, he elaborado un esquema que facilitará la comprensión detallada del ejercicio y nos permitirá enfocarnos en la problemática.
 
-![Esquema del segundo ejercicio](/Ejercicio2Modelo.png)
+![Esquema del segundo ejercicio](/docs/Ejercicio2Modelo.png)
 
 En primera instancia vamos a modelar lo que sería un plato, eso lo hacemos con la interfaz `Dish`
 ```typescript
